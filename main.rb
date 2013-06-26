@@ -50,9 +50,13 @@ get '/tweets/:username' do
   # @my_tweets.each do |tweet|
   #   tweet[:text]
   # end
+tweeter = Twitter.user(@username)
+@description = tweeter[:description]
 
   erb :tweets
 end
+
+
 
 get '/form' do
 

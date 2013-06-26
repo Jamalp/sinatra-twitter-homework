@@ -1,8 +1,13 @@
+   <center> <strong><%= @description %> </strong></center>
 <% @my_tweets.each do |tweet| %>
-    <ul>
-      <li><%= tweet[:text] %></li>
-      <li><% tweet[:media].each do |media_thing| %>
-        <img src="<%= media_thing[:media_url] %>" /> </li>
-        <% end %>
-    </ul>
-  <% end %>
+  <ul>
+    <li>
+      <a href="http://twitter.com/username/status/<%= tweet[:id] %>"><%= tweet[:text]%></a>
+      <% tweet[:media].each do |media_thing| %>
+      <img src="<%= media_thing[:media_url] %>" width="350" />
+    </li>
+      <%end%>
+  </ul>
+<% end %>
+
+<p> <%= @my_tweets %></p>
