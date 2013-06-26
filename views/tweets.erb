@@ -1,0 +1,8 @@
+<% @my_tweets.each do |tweet| %>
+    <ul>
+      <li><%= tweet[:text] %></li>
+      <li><% tweet[:media].each do |media_thing| %>
+        <img src="<%= media_thing[:media_url] %>" /> </li>
+        <% end %>
+    </ul>
+  <% end %>

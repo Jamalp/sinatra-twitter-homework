@@ -47,9 +47,21 @@ get '/tweets/:username' do
   @my_tweets = Twitter.user_timeline(@username)
 
   # The following 3 lines will output the text from each tweet from a user
-  @my_tweets.each do |tweet|
-    tweet[:text]
-  end
+  # @my_tweets.each do |tweet|
+  #   tweet[:text]
+  # end
 
   erb :tweets
+end
+
+get '/form' do
+
+  @username = params[:username]
+  if @username
+  redirect to("/tweets/#{@username}")
+else
+  puts "Enter a valid username"
+end
+
+  erb :form
 end
